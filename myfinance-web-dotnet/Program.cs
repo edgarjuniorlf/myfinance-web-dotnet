@@ -1,10 +1,14 @@
 using myfinance_web_dotnet.infrastructure;
+using myfinance_web_dotnet.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MyFinanceDbContext>();
+
+//Discutir sobre Scoped, Transient, Singleton
+builder.Services.AddScoped<IPlanoContaService, PlanoContaService>();
 
 var app = builder.Build();
 
